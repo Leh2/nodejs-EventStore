@@ -23,5 +23,16 @@
     "node-uuid": "~1.4.0",
     "protobuf": "~0.8.6"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "readme": "nodejs-EventStore\n=================\n\n[Event Store](http://geteventstore.com/) is \"an awesome, rock-solid, super-fast persistence engine for event-sourced applications.\"\n\nIt has HTTP and TCP client interfaces -- this project implements the TCP interface in Node.js in an async fashion.\n\n\nProject status\n--------------\n\n_Very_ early stage. Only a subset of the TCP API is implemented. But you can create streams of events and read them back, so the most important functionality is in!\n\n\nUsage\n-----\n\nInstalling:\n\n    npm install git://github.com/kenpratt/nodejs-EventStore.git\n\n\nConnecting:\n\n    var EventStore = require(\"nodejs-EventStore\");\n    var es = EventStore.connect(host, port);\n\n\nCreating an event stream:\n\n    es.createStream(streamName, cb);\n\n\nCreating an event (callback will contain event number for created event):\n\n    es.createEvent(streamName, eventType, data, cb);\n\n\nReading & subscribing to an event stream (callback will be called for each existing event in the stream, and for each event added in the future):\n\n    es.readAndSubscribeToStream(streamName, cb);\n\n\nDependencies\n------------\n\n* [Node.js](http://nodejs.org/)\n* A running [Event Store](http://geteventstore.com/) instance\n\n\nDevelopment dependencies\n------------------------\n\n* [Protocol Buffers (protobuf)](http://code.google.com/p/protobuf/)\n* Development Node.js packages: `npm install --dev`\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/kenpratt/nodejs-EventStore/issues"
+  },
+  "_id": "nodejs-EventStore@0.1.0",
+  "dist": {
+    "shasum": "601fce4fce61b5e0c413983a5cdccaad9e2cd170"
+  },
+  "_resolved": "git://github.com/kenpratt/nodejs-EventStore.git#31f1e1283eb7b1b0edb43a585f8d7bb210c620ea",
+  "_from": "git://github.com/kenpratt/nodejs-EventStore.git"
 }
