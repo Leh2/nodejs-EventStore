@@ -28,17 +28,31 @@ Connecting:
 
 Creating an event stream:
 
-    es.createStream(streamName, cb);
+    es.createStream(stream, cb);
 
 
-Creating an event (callback will contain event number for created event):
+Appending to a stream (callback passed error and firstEventNumber):
 
-    es.createEvent(streamName, eventType, data, cb);
+	es.appendToStream(stream, [expectedVersion,] events, cb);
+
+
+Creating an event (shortcut for appending a single event):
+
+    es.createEvent(stream, eventType, data, metaData, cb);
+
+Subscribing to a stream:
+
+	es.subscribeToStream(stream, [resolveLinkTos,] cb, droppedCb);
+
+Reading a stream:
+
+	es.readStreamEventsForward(stream,start,max,cb);
+	es.readStreamEventsBackward(stream,start,max,cb);
 
 
 Reading & subscribing to an event stream (callback will be called for each existing event in the stream, and for each event added in the future):
 
-    es.readAndSubscribeToStream(streamName, cb);
+    es.readAndSubscribeToStream(stream, cb);
 
 
 Dependencies
